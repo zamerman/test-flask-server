@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', 'https://github.com/zamerman/test-flask-server.git']
+  timeout: 60s
+  id: 'Git Clone'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/gcplabzamerman/test-flask-server', '.']
+  timeout: 60s
+  id: 'Docker Build'
+images: ['gcr.io/gcplabzamerman/test-flask-server']
+logsBucket: 'gs://gcplabzamerman-build-logs'
+options:
+  logStreamingOption: STREAM_ON
+tags: ['test-jenkins-server']
