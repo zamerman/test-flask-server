@@ -12,5 +12,10 @@ pipeline {
                 sh 'docker push gcr.io/gcplabzamerman/test-flask-server:latest'
             }
         }
+        stage ('Clean Workspace') {
+            steps {
+                cleanWs(deleteDirs:true)
+            }
+        }
     }
 }
