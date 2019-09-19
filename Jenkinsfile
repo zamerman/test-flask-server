@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'docker build -t gcr.io/gcplabzamerman/test-flask-server:latest'
+                sh 'docker build -t gcr.io/gcplabzamerman/test-flask-server:latest .'
             }
         }
         stage ('Push') {
