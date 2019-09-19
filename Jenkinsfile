@@ -8,6 +8,7 @@ pipeline {
         }
         stage ('Push') {
             steps {
+                sh 'gcloud auth configure-docker'
                 sh 'docker push gcr.io/gcplabzamerman/test-flask-server:latest'
             }
         }
