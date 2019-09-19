@@ -14,6 +14,7 @@ pipeline {
         }
         stage ('Clean Workspace') {
             steps {
+                sh 'docker image prune -f'
                 cleanWs(deleteDirs:true)
             }
         }
